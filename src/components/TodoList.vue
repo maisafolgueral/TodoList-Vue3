@@ -22,11 +22,15 @@ export default {
   methods: {
     addtoList() {
       this.list.unshift(this.text);
-      localStorage.setItem('list', JSON.stringify(this.list));
+      this.updateLocalStorage();
       this.text = '';
     },
     deleteFromList(index) {
       this.list.splice(index, 1);
+      this.updateLocalStorage();
+    },
+    updateLocalStorage() {
+      localStorage.setItem('list', JSON.stringify(this.list));
     }
   }
 }
