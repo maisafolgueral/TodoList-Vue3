@@ -15,9 +15,13 @@ export default {
       text: ''
     }
   },
+  created() {
+    this.list = JSON.parse(localStorage.getItem('list')) || [];
+  },
   methods: {
     addtoList() {
       this.list.unshift(this.text);
+      localStorage.setItem('list', JSON.stringify(this.list));
       this.text = '';
     }
   }
@@ -25,4 +29,5 @@ export default {
 </script>
 
 <style>
+
 </style>
